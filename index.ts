@@ -106,9 +106,105 @@ function greet(person: string, date: Date) {
 function greets(person: String, date: Date) {
   console.log(`Hello ${person} today is ${date.toDateString()}!`);
 }
-greets("Maddison", new Date());
+//greets("Maddison", new Date());
 
 // function greet(person: string, date: Date, time: Time) {
 //   console.log(`Hello ${person}, today is ${date.toDateString()}!`);
 // }
 // greet("Maddison", new Date(), new TIME());
+
+//funcrions
+function greetss(name: string) {
+  console.log("Hello, " + name.toUpperCase() + "!!");
+}
+//greetss("sd");
+
+function getFavoriteNumber(): number {
+  return 26;
+}
+
+async function getFavoriteNumbers(): Promise<number> {
+  return 26;
+}
+//console.log(getFavoriteNumbers());
+
+const names = ["Alice", "Bob", "Eve"];
+
+// Contextual typing for function - parameter s inferred to have type string
+// names.forEach(function (s) {
+//   console.log(s.toUpperCase());
+// });
+
+// Contextual typing also applies to arrow functions
+
+// names.forEach((s) => {
+//   console.log(s.toUpperCase());
+// });
+
+function printCoord(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+// printCoord({ x: 3, y: 7 });
+
+function printName(obj: { first: string; last?: string }) {
+  console.log(obj.first);
+  if (obj.last !== undefined) {
+    // OK
+
+    console.log(obj.last.toUpperCase());
+  }
+
+  // A safe alternative using modern JavaScript syntax:
+  console.log(obj.last?.toUpperCase());
+}
+// Both OK
+// printName({ first: "Bob" });
+// printName({ first: "Alice", last: "Alisson" });
+
+function welcomePeople(x: string[] | string) {
+  if (Array.isArray(x)) {
+    // Here: 'x' is 'string[]'
+    console.log("Hello, " + x.join(" and "));
+  } else {
+    // Here: 'x' is 'string'
+    console.log("Welcome lone traveler " + x);
+  }
+}
+
+//welcomePeople("Sa");
+
+// Return type is inferred as number[] | string
+function getFirstThree(x: number[] | string) {
+  return x.slice(0, 3);
+}
+
+//extending a Interface
+
+interface Animal {
+  name: string;
+}
+
+interface Bear extends Animal {
+  honey: boolean;
+}
+
+// const bear = getBear();
+// bear.name;
+// bear.honey;
+
+let name: any = "Scaler";
+let companyname = <string>name;
+//console.log(typeof companyname);
+
+interface employee {
+  name: string;
+  code: number;
+}
+let employee = <employee>{};
+employee.name = "Yash";
+employee.code = 1520;
+
+function compare(a: string, b: string): -1 | 0 | 1 {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
