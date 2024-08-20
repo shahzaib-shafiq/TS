@@ -1,3 +1,5 @@
+import { TIME } from "sequelize";
+
 let num: number = 5;
 
 const sum = (a: number, b: number): number => {
@@ -58,3 +60,55 @@ const message = "Hello World!";
 message.toLowerCase();
 // Calling 'message'
 //message(); TypeError: message is not a function
+
+const user = {
+  name: "Daniel",
+  age: 26,
+};
+//console.log(user.name);
+//user.location; // returns undefined
+
+const announcement = "Hello World!";
+
+// How quickly can you spot the typos?
+// announcement.toLocaleLowercase();
+// announcement.toLocalLowerCase();
+
+// We probably meant to write this...
+//console.log(announcement.toLocaleLowerCase());
+
+function flipCoin() {
+  // Meant to be Math.random()
+  return Math.random();
+}
+
+// console.log(flipCoin());
+// function greet(person: String, date: String) {
+//   console.log(`Hello ${person}, today is ${date}!`);
+// }
+
+// greet("Brendan", "32");
+
+// or
+
+function greet(person: string, date: Date) {
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const timeString = `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+
+  console.log(
+    `Hello ${person}, today is ${date.toDateString()} and the time is ${timeString}!`
+  );
+}
+
+//greet("Maddison", new Date());
+
+function greets(person: String, date: Date) {
+  console.log(`Hello ${person} today is ${date.toDateString()}!`);
+}
+greets("Maddison", new Date());
+
+// function greet(person: string, date: Date, time: Time) {
+//   console.log(`Hello ${person}, today is ${date.toDateString()}!`);
+// }
+// greet("Maddison", new Date(), new TIME());
