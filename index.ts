@@ -208,3 +208,86 @@ employee.code = 1520;
 function compare(a: string, b: string): -1 | 0 | 1 {
   return a === b ? 0 : a > b ? 1 : -1;
 }
+
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+
+// function greetsssss(person: Person) {
+//   return "Hello " + person.name;
+// }
+// greetsssss();
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+function greetssssssssssss(person: Person) {
+  return "Name " + person.name + " Age " + person.age;
+}
+const person1: Person = { name: "John", age: 30 };
+//console.log(greetssssssssssss(person1)); // Output
+
+interface Home {
+  readonly resident: { name: string; age: number };
+}
+
+function visitForBirthday(home: Home) {
+  // We can read and update properties from 'home.resident'.
+  console.log(`Happy birthday ${home.resident.name}!`);
+  home.resident.age++;
+}
+
+// function evict(home: Home) {
+//   // But we can't write to the 'resident' property itself on a 'Home'.
+//   home.resident = {
+//
+
+//Cannot assign to 'resident' because it is a read-only property.
+
+//     name: "Victor the Evictor",
+//     age: 42,
+//   };
+// }
+
+class Animal {
+  move() {
+    console.log("Moving along!");
+  }
+}
+
+class Dog extends Animal {
+  woof(times: number) {
+    for (let i = 0; i < times; i++) {
+      console.log("woof!");
+    }
+  }
+}
+
+const d = new Dog();
+// Base class method
+// d.move();
+// Derived class method
+// d.woof(31);
+
+class Base {
+  greet() {
+    console.log("Hello, world!");
+  }
+}
+
+class Derived extends Base {
+  greet(name?: string) {
+    if (name === undefined) {
+      super.greet();
+    } else {
+      console.log(`Hello, ${name.toUpperCase()}`);
+    }
+  }
+}
+
+const dr = new Derived();
+dr.greet();
+dr.greet("reader");
